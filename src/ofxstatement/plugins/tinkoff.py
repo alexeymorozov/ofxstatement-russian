@@ -84,6 +84,8 @@ class TinkoffStatementParser(StatementParser):
 
         transaction.trntype = parse_type(line['description'], transaction.amount)
 
+        transaction.payee = line['description']
+
         transaction.memo = "%s: %s"%(line['class'], line['description'])
 
         if line['MCC']:
